@@ -1,0 +1,11 @@
+Birthmonth: April
+Date: the 13th
+Interest: really terrible movies
+Hobby: program computers
+HowGood: pretty bad
+Fondness: paranormal lore
+Career: magician
+GenderDescriptor = "man"
+GenderPronoun = "his"
+GenderPronoun2 = "he"
+GenderPronoun3 = "was"
