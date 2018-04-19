@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Threading;
+using System.Media;
 
 namespace TextAdventure
 {
@@ -14,20 +16,16 @@ namespace TextAdventure
         public static string GenderPronoun3 = "were";
 
         static void Main(string[] args)
-        { 
-            Console.WriteLine(@"
-  ██████  ▄████▄   ██▀███   ██▓ ███▄ ▄███▓▓█████▄  ▒█████   ██▀███    █████▒
-▒██    ▒ ▒██▀ ▀█  ▓██ ▒ ██▒▓██▒▓██▒▀█▀ ██▒▒██▀ ██▌▒██▒  ██▒▓██ ▒ ██▒▓██   ▒ 
-░ ▓██▄   ▒▓█    ▄ ▓██ ░▄█ ▒▒██▒▓██    ▓██░░██   █▌▒██░  ██▒▓██ ░▄█ ▒▒████ ░ 
-  ▒   ██▒▒▓▓▄ ▄██▒▒██▀▀█▄  ░██░▒██    ▒██ ░▓█▄   ▌▒██   ██░▒██▀▀█▄  ░▓█▒  ░ 
-▒██████▒▒▒ ▓███▀ ░░██▓ ▒██▒░██░▒██▒   ░██▒░▒████▓ ░ ████▓▒░░██▓ ▒██▒░▒█░    
-▒ ▒▓▒ ▒ ░░ ░▒ ▒  ░░ ▒▓ ░▒▓░░▓  ░ ▒░   ░  ░ ▒▒▓  ▒ ░ ▒░▒░▒░ ░ ▒▓ ░▒▓░ ▒ ░    
-░ ░▒  ░ ░  ░  ▒     ░▒ ░ ▒░ ▒ ░░  ░      ░ ░ ▒  ▒   ░ ▒ ▒░   ░▒ ░ ▒░ ░      
-░  ░  ░  ░          ░░   ░  ▒ ░░      ░    ░ ░  ░ ░ ░ ░ ▒    ░░   ░  ░ ░    
-      ░  ░ ░         ░      ░         ░      ░        ░ ░     ░             
-         ░                                 ░                                
+        {
+            Thread thread = new Thread(DoTask);
+            thread.Start();// Start DoTask method in a new thread
+                           //Do other tasks in main thread
 
-");
+            //play music in the background while you run the program 
+            SoundPlayer introMusic = new SoundPlayer(@"C:\Users\Cyberadmin\Desktop\Personal-Projects\TextAdventure\TextAdventure\Piano2.wav");
+            introMusic.Play();
+
+            /*
             Console.Beep(233, 100);
             Console.Beep(311, 120);
             Console.Beep(261, 100);
@@ -41,17 +39,39 @@ namespace TextAdventure
             Console.Beep(659, 80);
             Console.Beep(739, 100);
             Console.Beep(987, 400);
+            */
 
+        }
+        static public void DoTask()
+        {
+            //do something in a new thread       
+
+
+
+            Console.WriteLine(@"
+  ██████  ▄████▄   ██▀███   ██▓ ███▄ ▄███▓▓█████▄  ▒█████   ██▀███    █████▒
+▒██    ▒ ▒██▀ ▀█  ▓██ ▒ ██▒▓██▒▓██▒▀█▀ ██▒▒██▀ ██▌▒██▒  ██▒▓██ ▒ ██▒▓██   ▒ 
+░ ▓██▄   ▒▓█    ▄ ▓██ ░▄█ ▒▒██▒▓██    ▓██░░██   █▌▒██░  ██▒▓██ ░▄█ ▒▒████ ░ 
+  ▒   ██▒▒▓▓▄ ▄██▒▒██▀▀█▄  ░██░▒██    ▒██ ░▓█▄   ▌▒██   ██░▒██▀▀█▄  ░▓█▒  ░ 
+▒██████▒▒▒ ▓███▀ ░░██▓ ▒██▒░██░▒██▒   ░██▒░▒████▓ ░ ████▓▒░░██▓ ▒██▒░▒█░    
+▒ ▒▓▒ ▒ ░░ ░▒ ▒  ░░ ▒▓ ░▒▓░░▓  ░ ▒░   ░  ░ ▒▒▓  ▒ ░ ▒░▒░▒░ ░ ▒▓ ░▒▓░ ▒ ░    
+░ ░▒  ░ ░  ░  ▒     ░▒ ░ ▒░ ▒ ░░  ░      ░ ░ ▒  ▒   ░ ▒ ▒░   ░▒ ░ ▒░ ░      
+░  ░  ░  ░          ░░   ░  ▒ ░░      ░    ░ ░  ░ ░ ░ ░ ▒    ░░   ░  ░ ░    
+      ░  ░ ░         ░      ░         ░      ░        ░ ░     ░             
+         ░                                 ░                                
+
+");
+            
 
             Console.WriteLine("Interactive story generator");
             Console.Read();
-           // Console.WriteLine("Etiam mauris tortor, lacinia at sapien et, bibendum fermentum felis. Vivamus pharetra eros at leo molestie iaculis. In aliquam semper nulla nec posuere. Nam bibendum pharetra sagittis. Vivamus congue purus id gravida fermentum. Sed faucibus, lectus vel pulvinar rhoncus, erat odio pellentesque sem, ut imperdiet mi mi sed odio. Donec cursus, ex eget porttitor imperdiet, eros ex ultricies lectus, vel congue purus leo eget mi. Duis justo neque, faucibus a commodo quis, condimentum interdum sem. Vestibulum malesuada justo quis tempor imperdiet. Donec sem nisl, gravida eget tincidunt in, sodales at orci. Vestibulum ornare tempus lacus, eu varius arcu rutrum a. Suspendisse vulputate eget lacus et varius. Proin consequat, neque vel volutpat tincidunt, arcu mauris tempor arcu, eu sodales ante nisl vitae libero. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce leo lacus, congue eget justo blandit, pretium ultricies ex.");
-           // Console.Read();
+            // Console.WriteLine("Etiam mauris tortor, lacinia at sapien et, bibendum fermentum felis. Vivamus pharetra eros at leo molestie iaculis. In aliquam semper nulla nec posuere. Nam bibendum pharetra sagittis. Vivamus congue purus id gravida fermentum. Sed faucibus, lectus vel pulvinar rhoncus, erat odio pellentesque sem, ut imperdiet mi mi sed odio. Donec cursus, ex eget porttitor imperdiet, eros ex ultricies lectus, vel congue purus leo eget mi. Duis justo neque, faucibus a commodo quis, condimentum interdum sem. Vestibulum malesuada justo quis tempor imperdiet. Donec sem nisl, gravida eget tincidunt in, sodales at orci. Vestibulum ornare tempus lacus, eu varius arcu rutrum a. Suspendisse vulputate eget lacus et varius. Proin consequat, neque vel volutpat tincidunt, arcu mauris tempor arcu, eu sodales ante nisl vitae libero. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce leo lacus, congue eget justo blandit, pretium ultricies ex.");
+            // Console.Read();
             Console.WriteLine("What would you like your character's name to be?");
             Console.ReadLine();
             String CharacterName = Console.ReadLine();
 
-            Console.WriteLine("Congratulations! Your name is now " + CharacterName +". How old are you?");
+            Console.WriteLine("Congratulations! Your name is now " + CharacterName + ". How old are you?");
             String CharacterAge = Console.ReadLine();
 
             int n;
@@ -66,24 +86,24 @@ namespace TextAdventure
                 if (n < 5)
                 {
                     Console.WriteLine("What an advanced baby you are!");
-                    
+
                 }
                 else
                 {
                     Console.WriteLine("got dang u old fam");
-                    
+
                 }
             }
             else
             {
                 Console.WriteLine(" ");
-                
+
             }
 
             //Console.Clear();
-           
+
             Console.WriteLine("Alright... what's a noticeable feature of yours? ");
-            
+
             Console.Read();
             String CharacterFeature = Console.ReadLine();
             Console.WriteLine("I'm not quite sure how we're going to manage to incorporate " + CharacterFeature + " into this game... but bear with us; we'll try.");
@@ -91,7 +111,7 @@ namespace TextAdventure
             Console.WriteLine("Just a few more questions, it wont be long!");
             Console.ReadLine();
             Console.Clear();
-            Console.WriteLine("What is your gender? (Please write M or F.)");            
+            Console.WriteLine("What is your gender? (Please write M or F.)");
             String GenderMarker = Console.ReadLine();
             if (GenderMarker == "M")
             {
@@ -108,16 +128,16 @@ namespace TextAdventure
                 GenderPronoun3 = "was";
             }
             Console.Clear();
-            Console.WriteLine("What month is your birthday?");            
+            Console.WriteLine("What month is your birthday?");
             String BirthMonth = Console.ReadLine();
             Console.Clear();
-            Console.WriteLine("What day is your birthday? (ex: 'the 13th')");            
+            Console.WriteLine("What day is your birthday? (ex: 'the 13th')");
             String Date = Console.ReadLine();
             Console.Clear();
-            Console.WriteLine("What is something you love? (ex: 'really terrible movies')");            
+            Console.WriteLine("What is something you love? (ex: 'really terrible movies')");
             String Interest = Console.ReadLine();
             Console.Clear();
-            Console.WriteLine("What do you like to do in your spare time? (ex: 'program Computers')");           
+            Console.WriteLine("What do you like to do in your spare time? (ex: 'program Computers')");
             String Hobby = Console.ReadLine();
             Console.Clear();
             Console.WriteLine("How good are you at it? (ex: 'pretty good', 'not so good' or 'terrible')");
@@ -170,7 +190,7 @@ namespace TextAdventure
  | |  | |_| | |_      ( (` | |_)  / /\  / /`  | |_      | |_)  / /\  / /`  | |_  
  |_|  |_| | |_|__     _)_) |_|   /_/--\ \_\_, |_|__     |_| \ /_/--\ \_\_, |_|__ ");
 
-                Console.WriteLine("Your name is " + CharacterName +". You're "+ CharacterAge +" years old, and you've been flying through space on this god-forsaken rock for as long as you can remember. ");
+                Console.WriteLine("Your name is " + CharacterName + ". You're " + CharacterAge + " years old, and you've been flying through space on this god-forsaken rock for as long as you can remember. ");
                 Console.WriteLine("You don't remember how or why you ended up here in the first place, but you can't shake the nagging feeling in the back of your mind that it's some form of punishment. ");
                 Console.WriteLine("thats all for the demo lol bye");
 
@@ -179,10 +199,10 @@ namespace TextAdventure
             }
             while (GameChoice == 6)
             {
-                
-               
-                
-                Console.WriteLine("A young " + GenderDescriptor + " stands in " + GenderPronoun + " bedroom. It just so happens that today, " + Date + " of " + BirthMonth +", 2018, is this young " + GenderDescriptor + "'s birthday. Though it was " + CharacterAge + " years ago " + GenderPronoun2 + " was given life, it is only today " + GenderPronoun2 + " will be given a name!");
+
+
+
+                Console.WriteLine("A young " + GenderDescriptor + " stands in " + GenderPronoun + " bedroom. It just so happens that today, " + Date + " of " + BirthMonth + ", 2018, is this young " + GenderDescriptor + "'s birthday. Though it was " + CharacterAge + " years ago " + GenderPronoun2 + " was given life, it is only today " + GenderPronoun2 + " will be given a name!");
                 Console.Read();
                 Console.WriteLine("What will the name of this young " + GenderDescriptor + " be?");
                 Console.Read();
@@ -196,10 +216,11 @@ namespace TextAdventure
             }
             while (GameChoice == 0)
             {
-                
+
                 Environment.Exit(0);
             }
+        }
 
         }
     }
-}
+
