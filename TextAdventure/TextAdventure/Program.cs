@@ -24,23 +24,8 @@ namespace TextAdventure
 
             //play music in the background while you run the program 
             SoundPlayer introMusic = new SoundPlayer(@"C:\Users\Cyberadmin\Desktop\Personal-Projects\TextAdventure\TextAdventure\Piano2.wav");
-            //introMusic.Play();
-
-            /*
-            Console.Beep(233, 100);
-            Console.Beep(311, 120);
-            Console.Beep(261, 100);
-            Console.Beep(38, 100);
-            Console.Beep(369, 100);
-            Console.Beep(415, 120);
-            Console.Beep(369, 100);
-            Console.Beep(38, 100);
-            Console.Beep(493, 100);
-            Console.Beep(587, 120);
-            Console.Beep(659, 80);
-            Console.Beep(739, 100);
-            Console.Beep(987, 400);
-            */
+            introMusic.Play();
+            
 
         }
         static public void DoTask()
@@ -263,10 +248,74 @@ namespace TextAdventure
                 GameChoice = 0;
             }
             while (GameChoice == 5)
-            {                
-                Console.WriteLine(@"_____  _     ____      __   ___    __    __    ____      ___    __    __    ____ 
- | |  | |_| | |_      ( (` | |_)  / /\  / /`  | |_      | |_)  / /\  / /`  | |_  
- |_|  |_| | |_|__     _)_) |_|   /_/--\ \_\_, |_|__     |_| \ /_/--\ \_\_, |_|__ ");
+            {
+                System.Threading.Thread.Sleep(35);
+                Console.Clear();
+                Console.WriteLine
+ (@"_____    
+ | |        
+ |_| ");
+                System.Threading.Thread.Sleep(35);
+                Console.Clear();
+                Console.WriteLine
+ (@"_____  _       
+ | |  | |_| |     
+ |_|  |_| | |");
+                System.Threading.Thread.Sleep(35);
+                Console.Clear();
+                Console.WriteLine
+ (@"_____  _     ____     
+ | |  | |_| | |_        
+ |_|  |_| | |_|__ ");
+                System.Threading.Thread.Sleep(35);
+                Console.Clear();
+                Console.WriteLine
+ (@"_____  _     ____      __    
+ | |  | |_| | |_      ( (`       
+ |_|  |_| | |_|__     _)_)  ");
+                System.Threading.Thread.Sleep(35);
+                Console.Clear();
+                Console.WriteLine
+ (@"_____  _     ____      __   ___    
+ | |  | |_| | |_      ( (` | |_)        
+ |_|  |_| | |_|__     _)_) |_|    ");
+                System.Threading.Thread.Sleep(35);
+                Console.Clear();
+                Console.WriteLine
+ (@"_____  _     ____      __   ___    __    
+ | |  | |_| | |_      ( (` | |_)  / /\          
+ |_|  |_| | |_|__     _)_) |_|   /_/--\   ");
+                System.Threading.Thread.Sleep(35);
+                Console.Clear();
+                Console.WriteLine
+ (@"_____  _     ____      __   ___    __    __     
+ | |  | |_| | |_      ( (` | |_)  / /\  / /`         
+ |_|  |_| | |_|__     _)_) |_|   /_/--\ \_\_, ");
+                System.Threading.Thread.Sleep(35);
+                Console.Clear();
+                Console.WriteLine
+ (@"_____  _     ____      __   ___    __    __    ____      ___    
+ | |  | |_| | |_      ( (` | |_)  / /\  / /`  | |_      | |_)    
+ |_|  |_| | |_|__     _)_) |_|   /_/--\ \_\_, |_|__     |_| \  ");
+                System.Threading.Thread.Sleep(35);
+                Console.Clear();
+                Console.WriteLine
+ (@"_____  _     ____      __   ___    __    __    ____      ___    __   
+ | |  | |_| | |_      ( (` | |_)  / /\  / /`  | |_      | |_)  / /\    
+ |_|  |_| | |_|__     _)_) |_|   /_/--\ \_\_, |_|__     |_| \ /_/--\ ");
+                System.Threading.Thread.Sleep(35);
+                Console.Clear();
+                Console.WriteLine
+ (@"_____  _     ____      __   ___    __    __    ____      ___    __    __     
+ | |  | |_| | |_      ( (` | |_)  / /\  / /`  | |_      | |_)  / /\  / /`   
+ |_|  |_| | |_|__     _)_) |_|   /_/--\ \_\_, |_|__     |_| \ /_/--\ \_\_,  ");
+                System.Threading.Thread.Sleep(50);
+                Console.Clear();
+                Console.WriteLine
+ (@"_____  _     ____      __   ___    __    __    ____      ___    __    __    ____
+ | |  | |_| | |_      ( (` | |_)  / /\  / /`  | |_      | |_)  / /\  / /`  | |_ 
+ |_|  |_| | |_|__     _)_) |_|   /_/--\ \_\_, |_|__     |_| \ /_/--\ \_\_, |_|__");
+
 
                 Console.WriteLine("Your name is " + CharacterName + ". You're " + CharacterAge + " years old, and you've been flying through space on this god-forsaken rock for as long as you can remember. ");
                 Console.ReadLine();
