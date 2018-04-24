@@ -14,6 +14,7 @@ namespace TextAdventure
         public static string GenderPronoun = "their";
         public static string GenderPronoun2 = "they";
         public static string GenderPronoun3 = "were";
+        public static string GenderPronoun4 = "them";
 
         static void Main(string[] args)
         {
@@ -23,7 +24,7 @@ namespace TextAdventure
 
             //play music in the background while you run the program 
             SoundPlayer introMusic = new SoundPlayer(@"C:\Users\Cyberadmin\Desktop\Personal-Projects\TextAdventure\TextAdventure\Piano2.wav");
-            introMusic.Play();
+            //introMusic.Play();
 
             /*
             Console.Beep(233, 100);
@@ -45,10 +46,28 @@ namespace TextAdventure
         static public void DoTask()
         {
             //do something in a new thread       
+            int T = 0;
 
+            while (T < 7)
+            {
+                
+                Console.Clear();
+                Console.WriteLine(@"
+  ▓▓▓▓▓▓  ▄▓▓▓▓▄   ▓▓▀▓▓▓   ▓▓▒ ▓▓▓▄ ▄▓▓▓▒▒▓▓▓▓▓▄  ░▓▓▓▓▓   ▓▓▀▓▓▓    ▓▓▓▓▓░
+░▓▓    ░ ░▓▓▀ ▀▓  ▒▓▓ ░ ▓▓░▒▓▓░▒▓▓░▀▓▀ ▓▓░░▓▓▀ ▓▓▌░▓▓░  ▓▓░▒▓▓ ░ ▓▓░▒▓▓   ░ 
+  ▒▓▓▄   ░▒▓    ▄ ▒▓▓  ▄▓ ░░▓▓░▒▓▓    ▒▓▓  ▓▓   ▓▌░▓▓   ▓▓░▒▓▓  ▄▓ ░░▓▓▓▓   
+  ░   ▓▓░░▒▒▄ ▄▓▓░░▓▓▀▀▓▄   ▓▓ ░▓▓    ░▓▓  ▒▓▄   ▌░▓▓   ▓▓ ░▓▓▀▀▓▄   ▒▓░    
+░▓▓▓▓▓▓░░░ ▒▓▓▓▀   ▓▓▒ ░▓▓░ ▓▓ ░▓▓░    ▓▓░ ░▓▓▓▓▒   ▓▓▓▓▒░  ▓▓▒ ░▓▓░ ░▓     
+░ ░▒░ ░     ░ ░     ░▒  ░▒  ▒    ░         ░░▒  ░   ░ ░ ░    ░▒  ░▒  ░      
+   ░          ░      ░   ░  ░                ░  ░     ░ ░     ░   ░         
+                            ░                           ░                   
+                                                                            
+                                                                            
 
-
-            Console.WriteLine(@"
+");
+                System.Threading.Thread.Sleep(100);
+                Console.Clear();
+                Console.WriteLine(@"
   ██████  ▄████▄   ██▀███   ██▓ ███▄ ▄███▓▓█████▄  ▒█████   ██▀███    █████▒
 ▒██    ▒ ▒██▀ ▀█  ▓██ ▒ ██▒▓██▒▓██▒▀█▀ ██▒▒██▀ ██▌▒██▒  ██▒▓██ ▒ ██▒▓██   ▒ 
 ░ ▓██▄   ▒▓█    ▄ ▓██ ░▄█ ▒▒██▒▓██    ▓██░░██   █▌▒██░  ██▒▓██ ░▄█ ▒▒████ ░ 
@@ -61,7 +80,12 @@ namespace TextAdventure
          ░                                 ░                                
 
 ");
-            
+                
+                System.Threading.Thread.Sleep(100);
+                T = (T + 1);
+            }
+
+
 
             Console.WriteLine("Interactive story generator");
             Console.Read();
@@ -71,9 +95,60 @@ namespace TextAdventure
             Console.ReadLine();
             String CharacterName = Console.ReadLine();
 
-            Console.WriteLine("Congratulations! Your name is now " + CharacterName + ". How old are you?");
-            String CharacterAge = Console.ReadLine();
+            if (CharacterName == "")
+            {
+                Console.WriteLine("..Do you not have a name?");
+                Console.Read();
+                Console.WriteLine("Well, I guess I'll have to name you then. How about.... ");
+                Console.Read();
+                Console.WriteLine("...Scrungy?");
+                Console.Read();
+                Console.WriteLine("...Bungo?");
+                Console.Read();
+                Console.WriteLine("Ah, god I'm terrible at this. Gimme a second, I'll just pull something from a");
+                Console.WriteLine("hat or some junk--");
+                Console.Read();
+                Console.WriteLine("Alright, by the power invested in me, I hereby dub thee...");
+                Console.Read();
 
+                Random NameGenerator = new Random();
+                int NameGen = NameGenerator.Next(1, 10);
+                if (NameGen == 1)
+                { CharacterName = "Shapiffany"; }
+                if (NameGen == 2)
+                { CharacterName = "EggBoy"; }
+                if (NameGen == 3)
+                { CharacterName = "Twelve Eels In A Very Long Trenchcoat"; }
+                if (NameGen == 4)
+                { CharacterName = "Bilbo"; }
+                if (NameGen == 5)
+                { CharacterName = "Blueberry"; }
+                if (NameGen == 6)
+                { CharacterName = "MeatSweat"; }
+                if (NameGen == 7)
+                { CharacterName = "Hambone"; }
+                if (NameGen == 8)
+                { CharacterName = "Peebub-Bubber"; }
+                if (NameGen == 9)
+                { CharacterName = "Angry"; }
+                if (NameGen == 10)
+                { CharacterName = "Jeff"; }
+                
+
+
+                Console.WriteLine(CharacterName + "!!!");
+                Console.ReadLine();
+                Console.WriteLine("Enjoy your adventure, " + CharacterName + "!");
+
+
+
+            }
+
+            Console.Clear();
+            Console.WriteLine("Congratulations! Your name is now " + CharacterName + ". How old are you?");
+           
+            String CharacterAge = Console.ReadLine();
+            
             int n;
             bool isNumeric = int.TryParse(CharacterAge, out n);
 
@@ -88,15 +163,16 @@ namespace TextAdventure
                     Console.WriteLine("What an advanced baby you are!");
 
                 }
-                else
+                if (n > 59)
                 {
-                    Console.WriteLine("got dang u old fam");
+                    
+                    Console.WriteLine("Try not to turn to dust before the end of our story, buddy.");
 
                 }
             }
             else
             {
-                Console.WriteLine(" ");
+                Console.Clear();
 
             }
 
@@ -104,7 +180,7 @@ namespace TextAdventure
 
             Console.WriteLine("Alright... what's a noticeable feature of yours? ");
 
-            Console.Read();
+            
             String CharacterFeature = Console.ReadLine();
             Console.WriteLine("I'm not quite sure how we're going to manage to incorporate " + CharacterFeature + " into this game... but bear with us; we'll try.");
             Console.ReadLine();
@@ -119,6 +195,7 @@ namespace TextAdventure
                 GenderPronoun = "his";
                 GenderPronoun2 = "he";
                 GenderPronoun3 = "was";
+                GenderPronoun4 = "him";
             }
             if (GenderMarker == "F")
             {
@@ -126,6 +203,7 @@ namespace TextAdventure
                 GenderPronoun = "her";
                 GenderPronoun2 = "she";
                 GenderPronoun3 = "was";
+                GenderPronoun4 = "her";
             }
             Console.Clear();
             Console.WriteLine("What month is your birthday?");
@@ -185,14 +263,29 @@ namespace TextAdventure
                 GameChoice = 0;
             }
             while (GameChoice == 5)
-            {
+            {                
                 Console.WriteLine(@"_____  _     ____      __   ___    __    __    ____      ___    __    __    ____ 
  | |  | |_| | |_      ( (` | |_)  / /\  / /`  | |_      | |_)  / /\  / /`  | |_  
  |_|  |_| | |_|__     _)_) |_|   /_/--\ \_\_, |_|__     |_| \ /_/--\ \_\_, |_|__ ");
 
                 Console.WriteLine("Your name is " + CharacterName + ". You're " + CharacterAge + " years old, and you've been flying through space on this god-forsaken rock for as long as you can remember. ");
+                Console.ReadLine();
                 Console.WriteLine("You don't remember how or why you ended up here in the first place, but you can't shake the nagging feeling in the back of your mind that it's some form of punishment. ");
-                Console.WriteLine("thats all for the demo lol bye");
+                Console.ReadLine();
+                Console.WriteLine("......");
+                Console.ReadLine();
+                Console.WriteLine("is this purgatory? Some kind of half-baked attempt at an afterlife? You may never know. You decide to ponder your existencial crisis at a later time, when you don't have the rumbling of your stomach to distract you.");
+                Console.ReadLine();
+                Console.Clear();
+                Console.WriteLine("Damn, you're hungry.");
+                Console.ReadLine();
+                Console.WriteLine("B");
+                Console.ReadLine();
+                Console.WriteLine("C");
+                Console.ReadLine();
+                Console.WriteLine("D");
+                Console.ReadLine();
+                Console.WriteLine("E");
 
                 Console.Read();
                 GameChoice = 0;
@@ -202,7 +295,7 @@ namespace TextAdventure
 
 
 
-                Console.WriteLine("A young " + GenderDescriptor + " stands in " + GenderPronoun + " bedroom. It just so happens that today, " + Date + " of " + BirthMonth + ", 2018, is this young " + GenderDescriptor + "'s birthday. Though it was " + CharacterAge + " years ago " + GenderPronoun2 + " was given life, it is only today " + GenderPronoun2 + " will be given a name!");
+                Console.WriteLine("A young " + GenderDescriptor + " stands in " + GenderPronoun + " bedroom. It just so happens that today, " + Date + " of " + BirthMonth + ", 2018, is this young " + GenderDescriptor + "'s birthday. Though it was " + CharacterAge + " years ago " + GenderPronoun2 + " " + GenderPronoun3 + " given life, it is only today " + GenderPronoun2 + " will be given a name!");
                 Console.Read();
                 Console.WriteLine("What will the name of this young " + GenderDescriptor + " be?");
                 Console.Read();
