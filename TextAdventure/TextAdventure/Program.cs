@@ -35,6 +35,8 @@ namespace TextAdventure
 
             while (T < 7)
             {
+                Console.BackgroundColor = ConsoleColor.Black;
+                Console.ForegroundColor = ConsoleColor.DarkRed;
                 
                 Console.Clear();
                 Console.WriteLine(@"
@@ -70,7 +72,8 @@ namespace TextAdventure
                 T = (T + 1);
             }
 
-
+            Console.BackgroundColor = ConsoleColor.Black;
+            Console.ForegroundColor = ConsoleColor.Yellow;
 
             Console.WriteLine("Interactive story generator");
             Console.Read();
@@ -86,10 +89,12 @@ namespace TextAdventure
                 Console.Read();
                 Console.WriteLine("Well, I guess I'll have to name you then. How about.... ");
                 Console.Read();
+                Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("...Scrungy?");
                 Console.Read();
                 Console.WriteLine("...Bungo?");
                 Console.Read();
+                Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.WriteLine("Ah, god I'm terrible at this. Gimme a second, I'll just pull something from a");
                 Console.WriteLine("hat or some junk--");
                 Console.Read();
@@ -99,7 +104,7 @@ namespace TextAdventure
                 Random NameGenerator = new Random();
                 int NameGen = NameGenerator.Next(1, 10);
                 if (NameGen == 1)
-                { CharacterName = "Shapiffany"; }
+                { CharacterName =  "Shapiffany"; }
                 if (NameGen == 2)
                 { CharacterName = "EggBoy"; }
                 if (NameGen == 3)
@@ -118,12 +123,12 @@ namespace TextAdventure
                 { CharacterName = "Angry"; }
                 if (NameGen == 10)
                 { CharacterName = "Jeff"; }
-                
 
 
+                Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine(CharacterName + "!!!");
                 Console.ReadLine();
-                Console.WriteLine("Enjoy your adventure, " + CharacterName + "!");
+                Console.WriteLine("Enjoy your adventure, "+ CharacterName + "!");
 
 
 
@@ -137,22 +142,37 @@ namespace TextAdventure
             int n;
             bool isNumeric = int.TryParse(CharacterAge, out n);
 
+            if (CharacterAge == "")
+            {
 
-            if (isNumeric)
+            }
+                if (isNumeric)
             {
 
 
 
-                if (n < 5)
+                if (n < 5 && n > 0)
                 {
                     Console.WriteLine("What an advanced baby you are!");
 
                 }
-                if (n > 59)
+                else if (n > 59 && n < 100)
                 {
                     
                     Console.WriteLine("Try not to turn to dust before the end of our story, buddy.");
 
+                }
+                else if (n > 100)
+                {
+
+                    Console.WriteLine("Either you're some sort of demigod, or you're holding yourself to this plane of existence through sheer force of will and lots of vitamins. Either way I fear your power. ");
+
+                }
+                else if (n < 0)
+                {
+                    Console.WriteLine("Nice try, Fetus Johnson. Your tiny babby hands won't get you very far.");
+                    Console.ReadLine();
+                    Environment.Exit(0);
                 }
             }
             else
@@ -249,72 +269,63 @@ namespace TextAdventure
             }
             while (GameChoice == 5)
             {
-                System.Threading.Thread.Sleep(35);
+                Console.BackgroundColor = ConsoleColor.DarkRed;
+                Console.ForegroundColor = ConsoleColor.Gray;
+
+                
                 Console.Clear();
                 Console.WriteLine
- (@"_____    
- | |        
- |_| ");
-                System.Threading.Thread.Sleep(35);
-                Console.Clear();
-                Console.WriteLine
- (@"_____  _       
- | |  | |_| |     
- |_|  |_| | |");
-                System.Threading.Thread.Sleep(35);
-                Console.Clear();
-                Console.WriteLine
- (@"_____  _     ____     
- | |  | |_| | |_        
- |_|  |_| | |_|__ ");
-                System.Threading.Thread.Sleep(35);
-                Console.Clear();
-                Console.WriteLine
- (@"_____  _     ____      __    
- | |  | |_| | |_      ( (`       
- |_|  |_| | |_|__     _)_)  ");
-                System.Threading.Thread.Sleep(35);
-                Console.Clear();
-                Console.WriteLine
- (@"_____  _     ____      __   ___    
- | |  | |_| | |_      ( (` | |_)        
- |_|  |_| | |_|__     _)_) |_|    ");
-                System.Threading.Thread.Sleep(35);
-                Console.Clear();
-                Console.WriteLine
- (@"_____  _     ____      __   ___    __    
- | |  | |_| | |_      ( (` | |_)  / /\          
- |_|  |_| | |_|__     _)_) |_|   /_/--\   ");
-                System.Threading.Thread.Sleep(35);
-                Console.Clear();
-                Console.WriteLine
- (@"_____  _     ____      __   ___    __    __     
- | |  | |_| | |_      ( (` | |_)  / /\  / /`         
- |_|  |_| | |_|__     _)_) |_|   /_/--\ \_\_, ");
-                System.Threading.Thread.Sleep(35);
-                Console.Clear();
-                Console.WriteLine
- (@"_____  _     ____      __   ___    __    __    ____      ___    
- | |  | |_| | |_      ( (` | |_)  / /\  / /`  | |_      | |_)    
- |_|  |_| | |_|__     _)_) |_|   /_/--\ \_\_, |_|__     |_| \  ");
-                System.Threading.Thread.Sleep(35);
-                Console.Clear();
-                Console.WriteLine
- (@"_____  _     ____      __   ___    __    __    ____      ___    __   
- | |  | |_| | |_      ( (` | |_)  / /\  / /`  | |_      | |_)  / /\    
- |_|  |_| | |_|__     _)_) |_|   /_/--\ \_\_, |_|__     |_| \ /_/--\ ");
-                System.Threading.Thread.Sleep(35);
-                Console.Clear();
-                Console.WriteLine
- (@"_____  _     ____      __   ___    __    __    ____      ___    __    __     
- | |  | |_| | |_      ( (` | |_)  / /\  / /`  | |_      | |_)  / /\  / /`   
- |_|  |_| | |_|__     _)_) |_|   /_/--\ \_\_, |_|__     |_| \ /_/--\ \_\_,  ");
+ (@"       __       
+      ( (`         
+      _)_) ");
                 System.Threading.Thread.Sleep(50);
                 Console.Clear();
                 Console.WriteLine
- (@"_____  _     ____      __   ___    __    __    ____      ___    __    __    ____
- | |  | |_| | |_      ( (` | |_)  / /\  / /`  | |_      | |_)  / /\  / /`  | |_ 
- |_|  |_| | |_|__     _)_) |_|   /_/--\ \_\_, |_|__     |_| \ /_/--\ \_\_, |_|__");
+ (@"       __   ___        
+      ( (` | |_)        
+      _)_) |_|   ");
+                System.Threading.Thread.Sleep(50);
+                Console.Clear();
+                Console.WriteLine
+ (@"       __   ___    __       
+      ( (` | |_)  / /\         
+      _)_) |_|   /_/--\  ");
+                System.Threading.Thread.Sleep(50);
+                Console.Clear();
+                Console.WriteLine
+ (@"       __   ___    __    __        
+      ( (` | |_)  / /\  / /`        
+      _)_) |_|   /_/--\ \_\_,  ");
+                System.Threading.Thread.Sleep(50);
+                Console.Clear();
+                Console.WriteLine
+ (@"       __   ___    __    __    ____        
+      ( (` | |_)  / /\  / /`  | |_        
+      _)_) |_|   /_/--\ \_\_, |_|__     ");
+                System.Threading.Thread.Sleep(50);
+                Console.Clear();
+                Console.WriteLine
+ (@"       __   ___    __    __    ____      ___     
+      ( (` | |_)  / /\  / /`  | |_      | |_)   
+      _)_) |_|   /_/--\ \_\_, |_|__     |_| \ ");
+                System.Threading.Thread.Sleep(50);
+                Console.Clear();
+                Console.WriteLine
+ (@"       __   ___    __    __    ____      ___    __    
+      ( (` | |_)  / /\  / /`  | |_      | |_)  / /\  
+      _)_) |_|   /_/--\ \_\_, |_|__     |_| \ /_/--\ ");
+                System.Threading.Thread.Sleep(50);
+                Console.Clear();
+                Console.WriteLine
+ (@"       __   ___    __    __    ____      ___    __    __   
+      ( (` | |_)  / /\  / /`  | |_      | |_)  / /\  / /`  
+      _)_) |_|   /_/--\ \_\_, |_|__     |_| \ /_/--\ \_\_, ");
+                System.Threading.Thread.Sleep(50);
+                Console.Clear();
+                Console.WriteLine
+ (@"       __   ___    __    __    ____      ___    __    __    ____
+      ( (` | |_)  / /\  / /`  | |_      | |_)  / /\  / /`  | |_ 
+      _)_) |_|   /_/--\ \_\_, |_|__     |_| \ /_/--\ \_\_, |_|__");
 
 
                 Console.WriteLine("Your name is " + CharacterName + ". You're " + CharacterAge + " years old, and you've been flying through space on this god-forsaken rock for as long as you can remember. ");
@@ -328,13 +339,44 @@ namespace TextAdventure
                 Console.Clear();
                 Console.WriteLine("Damn, you're hungry.");
                 Console.ReadLine();
-                Console.WriteLine("B");
+                Console.WriteLine("");
                 Console.ReadLine();
                 Console.WriteLine("C");
                 Console.ReadLine();
                 Console.WriteLine("D");
                 Console.ReadLine();
                 Console.WriteLine("E");
+                
+                Console.Clear();
+                System.Threading.Thread.Sleep(50);
+                Console.Clear();
+                Console.BackgroundColor = ConsoleColor.DarkRed;
+                System.Threading.Thread.Sleep(75);
+                Console.Clear();
+                Console.BackgroundColor = ConsoleColor.DarkYellow;
+                System.Threading.Thread.Sleep(75);
+                Console.Clear();
+                Console.BackgroundColor = ConsoleColor.DarkRed;
+                System.Threading.Thread.Sleep(75);
+                Console.Clear();
+                Console.BackgroundColor = ConsoleColor.DarkYellow;
+                System.Threading.Thread.Sleep(75);
+                Console.Clear();
+                Console.BackgroundColor = ConsoleColor.DarkRed;
+                System.Threading.Thread.Sleep(75);
+                Console.Clear();
+                Console.BackgroundColor = ConsoleColor.DarkYellow;
+                System.Threading.Thread.Sleep(75);
+                Console.Clear();
+                Console.BackgroundColor = ConsoleColor.DarkRed;
+                System.Threading.Thread.Sleep(75);
+                Console.Clear();
+                Console.BackgroundColor = ConsoleColor.DarkYellow;
+                System.Threading.Thread.Sleep(75);
+                Console.Clear();
+                Console.BackgroundColor = ConsoleColor.DarkGreen;
+                Console.Clear();
+                Console.WriteLine("you've been spooked");
 
                 Console.Read();
                 GameChoice = 0;
